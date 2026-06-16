@@ -1,12 +1,21 @@
 /* =========================================
+<<<<<<< Updated upstream
    Astro-Paws: Retro Terminal Stylesheet
 ========================================= */
 
 /* 1. Estilos Globales y Tipografía Arcade */
+=======
+   Astro-Paws: Retro Galáctica Stylesheet
+========================================= */
+
+/* 1. Estilos Globales - Fondo Espacial */
+>>>>>>> Stashed changes
 body {
     margin: 0;
     padding: 0;
     background-color: #0b0f19;
+    /* REEMPLAZA CON TU IMAGEN DE FONDO: background-image: url('assets/space_bg.png'); */
+    background-size: cover;
     color: #e0e6ed;
     font-family: 'Press Start 2P', monospace; /* Fuente Pixel Art obligatoria */
     font-size: 10px; 
@@ -17,11 +26,62 @@ body {
     height: 100vh;
 }
 
+<<<<<<< Updated upstream
 /* 2. Contenedor Principal (La "Consola") */
-.terminal-container {
+=======
+/* 2. Pantalla de Onboarding (Menú de Inicio) */
+.onboarding-container {
     width: 100%;
     max-width: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.onboarding-box {
     background-color: #151a28;
+    border: 6px solid #4a6fa5;
+    padding: 30px;
+    box-shadow: 10px 10px 0px #000000;
+    text-align: center;
+    width: 100%;
+}
+
+.onboarding-box h1 { color: #ffb703; font-size: 14px; margin-bottom: 10px; }
+.onboarding-box p { font-size: 8px; color: #a0aec0; margin-bottom: 25px; }
+
+fieldset.form-group {
+    border: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+fieldset.form-group label {
+    font-size: 8px;
+    color: #00ffcc;
+    margin-bottom: 10px;
+}
+
+fieldset.form-group input {
+    background-color: #0b0f19;
+    padding: 15px;
+    border: 3px solid #4a6fa5;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 10px;
+    box-shadow: inset 4px 4px 0px #000;
+}
+
+/* 3. Contenedor de la Terminal Sci-Fi */
+>>>>>>> Stashed changes
+.terminal-container {
+    width: 100%;
+    max-width: 680px;
+    background-color: #151a28;
+<<<<<<< Updated upstream
     border: 4px solid #4a6fa5; /* Borde grueso retro */
     display: flex;
     flex-direction: column;
@@ -30,27 +90,49 @@ body {
 }
 
 /* 3. Panel de Estado (HUD) estilo Videojuego */
+=======
+    border: 4px solid #ffb703;
+    display: flex;
+    flex-direction: column;
+    height: 85vh;
+    box-shadow: 10px 10px 0px #000000;
+}
+
+header { padding: 15px; text-align: center; border-bottom: 4px solid #4a6fa5; background-color: #0b0f19;}
+header h1 { margin: 0 0 10px 0; font-size: 12px; color: #ffffff; }
+header p { margin: 0; font-size: 8px; color: #a0aec0; }
+
+/* 4. Panel de Estado (HUD) Galáctico */
+>>>>>>> Stashed changes
 .hud {
     display: flex;
     padding: 15px;
     background-color: #0b0f19;
-    border-bottom: 4px dashed #4a6fa5;
+    border-bottom: 4px dashed #ffb703;
     gap: 20px;
     align-items: center;
+    position: relative; /* Importante para el mapa */
 }
 
 .avatar-box {
     text-align: center;
     background-color: #1a2332;
     padding: 10px;
+<<<<<<< Updated upstream
     border: 2px solid #ffb703;
     box-shadow: 2px 2px 0px #000;
+=======
+    border: 3px solid #ffb703;
+    box-shadow: 4px 4px 0px #000;
+    margin: 0;
+>>>>>>> Stashed changes
 }
 
 .sprite {
     font-size: 2.5rem; 
 }
 
+<<<<<<< Updated upstream
 .name-tag {
     font-weight: bold;
     color: #ffb703;
@@ -147,13 +229,138 @@ input[type="text"] {
 input[type="text"]:focus {
     border-color: #ffb703;
 }
+=======
+.stats-box { flex: 1; display: flex; flex-direction: column; gap: 10px; font-size: 9px; margin: 0; position: relative; }
+.stat { display: flex; justify-content: space-between; align-items: center; }
+.score { color: #00ffcc; text-shadow: 2px 2px 0px #000; }
+
+/* --- NUEVO: Mapa de Mundos Dinámico --- */
+.world-map {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin-top: 15px;
+    padding: 10px 0;
+    width: 100%;
+    border: 2px solid #4a6fa5;
+    background-color: #1a2332;
+}
+
+/* Ruta: Starlight Trail (puntos de luz) */
+.map-path {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    right: 10px;
+    height: 4px;
+    background-image: repeating-linear-gradient(to right, #00ffcc 0, #00ffcc 3px, #1a2332 3px, #1a2332 6px); /* Efecto de puntos de starlight */
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+/* Los Nodos de Planetas */
+.level-node {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%; 
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 9px;
+    color: #ffffff;
+    box-shadow: 4px 4px 0px #000;
+    transition: all 0.4s ease-in-out; /* Transiciones suaves */
+    border: 3px solid #4a6fa5;
+    position: relative;
+}
+
+/* Estilo Planeta Texturizado (Degradado retro) */
+.level-node:not(.locked) {
+    background: radial-gradient(circle, #4a6fa5 0%, #0b0f19 100%);
+}
+
+/* Nivel actual: Planeta Latiendo (Estilo Mario World) */
+.level-node.active {
+    background: radial-gradient(circle, #ffb703 0%, #e60000 100%); /* Planeta rojo ardiente */
+    border-color: #ffffff;
+    animation: planet-pulse 1s infinite alternate;
+}
+
+/* Nivel completado: Planeta Verde Éxito */
+.level-node.completed {
+    background: radial-gradient(circle, #00ffcc 0%, #00a383 100%); /* Planeta verde esmeralda */
+    border-color: #ffffff;
+    color: #0b0f19;
+}
+
+/* Nivel bloqueado: Planeta Muerto */
+.level-node.locked {
+    opacity: 0.5;
+    background-color: #151a28;
+    border-color: #1a2332;
+    color: #4a6fa5;
+}
+
+@keyframes planet-pulse {
+    0% { transform: scale(1); box-shadow: 0 0 5px #e60000; }
+    100% { transform: scale(1.3); box-shadow: 0 0 20px #e60000; }
+}
+
+/* --- NUEVO: El Personaje (Astro) en el mapa --- */
+.map-character {
+    width: 32px;  /* Tamaño de tu sprite pixel-art */
+    height: 32px; /* Tamaño de tu sprite pixel-art */
+    position: absolute;
+    bottom: -15px; /* Ajustar posición para que se vea sobre el camino */
+    z-index: 5;
+    transition: left 0.6s ease-in-out; /* Esta es la magia del movimiento suave */
+    left: -100px; /* Posición inicial oculta */
+    box-shadow: 4px 4px 0px #000;
+}
+
+/* PLACEHOLDER VISUAL PARA EL PERSONAJE (Cajita de color) */
+.map-character:not(.locked) {
+    background-color: #ffb703; /* Usarás la imagen de Astro aquí */
+    border: 3px solid #ffffff;
+    animation: walk-frames 0.3s steps(2) infinite; /* steps(2) es clave para pixel-art de 2 fotogramas */
+}
+
+/* --- LOGICA DE FOTOGRAMAS (Descomentar cuando tengas el asset de Astro) --- */
+/* .map-character.walking {
+    background-image: url('assets/astro_sprite_sheet.png');
+    background-size: cover; 
+} */
+
+/* @keyframes walk-frames {
+    0% { background-position: 0px; }
+    100% { background-position: -64px; } /* Desplazamiento de dos fotogramas de 32px */ 
+
+/* 5. Chat, Mensajes y Controles (Sin cambios) */
+.chat-box { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 20px; background-color: #0b0f19; }
+
+.message { padding: 15px; max-width: 85%; box-shadow: 4px 4px 0px #000000; }
+.message.user { align-self: flex-end; background-color: #2b3a67; border: 2px solid #4a6fa5; color: #ffffff; }
+.message.bot { align-self: flex-start; background-color: #1a2332; border: 3px solid #f8f9fa; color: #f8f9fa; }
+
+.input-area { display: flex; padding: 15px; background-color: #1a2332; border-top: 4px solid #4a6fa5; gap: 10px; margin: 0; }
+.input-area input[type="text"] { flex: 1; padding: 12px; background-color: #0b0f19; border: 2px solid #4a6fa5; color: #ffffff; font-family: inherit; font-size: 10px; outline: none; box-shadow: inset 2px 2px 0px #000; }
+.input-area input[type="text"]:focus, fieldset.form-group input:focus { border-color: #ffb703; }
+>>>>>>> Stashed changes
 
 button {
     font-family: inherit;
     font-size: 10px;
+<<<<<<< Updated upstream
     padding: 10px 20px;
     background-color: #4a6fa5;
     color: white;
+=======
+    padding: 12px 20px;
+    background-color: #ffb703; /* Botón de acción dorado */
+    color: #0b0f19;
+>>>>>>> Stashed changes
     border: 2px solid #ffffff;
     box-shadow: 4px 4px 0px #000000;
     cursor: pointer;

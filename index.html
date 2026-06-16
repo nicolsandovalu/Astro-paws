@@ -3,17 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astro-Paws Terminal</title>
+    <title>Astro-Paws Terminal: Galáctica</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<<<<<<< Updated upstream
     <div class="terminal-container">
+=======
+
+    <section id="onboarding-screen" class="onboarding-container" aria-label="Pantalla de registro">
+        <article class="onboarding-box">
+            <header>
+                <h1>🛸 Registro de Tripulante</h1>
+                <p>Calibremos tus sistemas para personalizar tu bitácora espacial.</p>
+            </header>
+            
+            <form id="onboarding-form">
+                <fieldset class="form-group">
+                    <label for="user-name">¿Cómo te llamas?</label>
+                    <input type="text" id="user-name" placeholder="Tu nombre..." autocomplete="name" required>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="user-job">¿A qué te dedicas actualmente?</label>
+                    <input type="text" id="user-job" placeholder="Ej. Analista, Programación, Estudiante..." required>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="user-hobbies">Menciona tus vías de escape (hobbies):</label>
+                    <input type="text" id="user-hobbies" placeholder="Ej. Entrenar boxeo, ver One Piece, K-dramas..." required>
+                </fieldset>
+
+                <button type="submit">INICIAR MISIÓN</button>
+            </form>
+        </article>
+    </section>
+
+    <main id="terminal-screen" class="terminal-container" style="display: none;">
+        
+>>>>>>> Stashed changes
         <header>
             <h1>🌌 Terminal Astro-Paws</h1>
-            <p>Conéctate a la terminal si sientes turbulencia en tu nave mental.</p>
+            <p>Conéctate si sientes turbulencia mental en tu nave.</p>
         </header>
 
+<<<<<<< Updated upstream
         <div class="hud">
             <div class="avatar-box">
                 <span class="sprite">🐶</span> <div class="name-tag">ASTRO</div>
@@ -29,6 +64,32 @@
                 </div>
             </div>
         </div>
+=======
+        <section class="hud" aria-label="Panel de estado galáctico">
+            <figure class="avatar-box">
+                <span class="sprite" role="img" aria-label="Avatar de Astro">🐶</span>
+                <figcaption class="name-tag">ASTRO</figcaption>
+            </figure>
+            
+            <dl class="stats-box">
+                <div class="stat">
+                    <dt>Puntos de Calma:</dt>
+                    <dd><output id="score-display" class="score">0 XP</output></dd>
+                </div>
+                
+                <nav class="world-map" aria-label="Mapa de progreso galáctico">
+                    <div class="map-path"></div> <figure id="astro-on-map" class="map-character locked" aria-label="Sprite de Astro en el mapa">
+                        </figure>
+
+                    <div class="level-node active" id="node-1">1</div>
+                    <div class="level-node locked" id="node-2">2</div>
+                    <div class="level-node locked" id="node-3">3</div>
+                    <div class="level-node locked" id="node-4">4</div>
+                    <div class="level-node locked" id="node-5" title="Recompensa Final">🍄</div>
+                </nav>
+            </dl>
+        </section>
+>>>>>>> Stashed changes
         
         <div id="chat-box" class="chat-box">
             <div class="message bot">¡Guau! Soy Astro. ¿Cómo están los niveles de oxígeno en tu nave hoy?</div>
