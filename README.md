@@ -28,10 +28,10 @@ Sigue estos pasos para ejecutar la terminal en tu entorno local:
 ## Crear y activar un entorno virtual (Recomendado):
 ```python -m venv venv```
 
-# En Windows:
+## En Windows:
 venv\Scripts\activate
 
-# En macOS/Linux:
+## En macOS/Linux:
 source venv/bin/activate
 
 ## Instalar las dependencias:
