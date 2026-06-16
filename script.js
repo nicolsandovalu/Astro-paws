@@ -1,49 +1,62 @@
+// Referencias al DOM
+const onboardingScreen = document.getElementById('onboarding-screen');
+const terminalScreen = document.getElementById('terminal-screen');
+const onboardingForm = document.getElementById('onboarding-form');
+const chatForm = document.getElementById('chat-form');
 const chatBox = document.getElementById('chat-box');
 const userInput = document.getElementById('user-input');
-const sendBtn = document.getElementById('send-btn');
-const scoreDisplay = document.getElementById('score-display'); // Capturamos el contador de XP
+const scoreDisplay = document.getElementById('score-display');
 
-// Variable global para guardar los puntos
+// Memoria del juego
+let perfilUsuario = {};
 let puntosTotales = 0;
+let primerMensajeEnviado = false; // Bandera para saber si es el inicio de la charla
 
-// Función para agregar mensajes al DOM
+// 1. Manejo del Onboarding
+onboardingForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    perfilUsuario = {
+        nombre: document.getElementById('user-name').value.trim(),
+        ocupacion: document.getElementById('user-job').value.trim(),
+        hobbies: document.getElementById('user-hobbies').value.trim()
+    };
+
+    // Cambiar de pantalla
+    onboardingScreen.style.display = 'none';
+    terminalScreen.style.display = 'flex';
+    
+    // Auto-foco en el input del chat para que sea rápido escribir
+    userInput.focus();
+});
+
+// 2. Funciones de UI del Chat
 function appendMessage(text, sender) {
-    const messageDiv = document.createElement('div');
+    const messageDiv = document.createElement('article');
     messageDiv.classList.add('message', sender);
     messageDiv.textContent = text;
     chatBox.appendChild(messageDiv);
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// Función para detectar puntos, actualizar el HUD y limpiar el texto
 function procesarPuntos(textoBot) {
-    // Busca exactamente la etiqueta oculta [XP: numero] sin importar mayúsculas
     const regex = /\[XP:\s*(\d+)\]/i;
     const coincidencia = textoBot.match(regex);
 
     if (coincidencia) {
-        // Extraemos el número y lo sumamos
         const puntosGanados = parseInt(coincidencia[1]);
         puntosTotales += puntosGanados;
-        
-        // Actualizamos el HTML
         scoreDisplay.textContent = puntosTotales + ' XP';
         
-        // Pequeña animación: hace que el texto parpadee en blanco al ganar puntos
         scoreDisplay.style.color = '#ffffff';
-        setTimeout(() => {
-            scoreDisplay.style.color = '#00ffcc';
-        }, 300);
+        setTimeout(() => { scoreDisplay.style.color = '#00ffcc'; }, 300);
 
-        // Devolvemos el texto SIN la etiqueta [XP: 15] para que no se vea en pantalla
         return textoBot.replace(regex, '').trim();
     }
-    
-    // Si no hay puntos, devolvemos el texto original tal cual
     return textoBot;
 }
 
-// Función principal
+// 3. Comunicación con el Backend
 async function sendMessage() {
     const text = userInput.value.trim();
     if (!text) return;
@@ -51,22 +64,25 @@ async function sendMessage() {
     appendMessage(text, 'user');
     userInput.value = '';
 
+    // Preparamos los datos a enviar
+    // Si es el primer mensaje, enviamos el perfil para que Astro lo aprenda
+    const payload = {
+        mensaje: text,
+        perfil: primerMensajeEnviado ? null : perfilUsuario 
+    };
+
     try {
         const response = await fetch('http://127.0.0.1:5000/api/chat', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ mensaje: text })
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
         });
 
         const data = await response.json();
 
         if (response.ok) {
-            // 1. Procesamos y limpiamos la respuesta de la IA (buscando los XP)
+            primerMensajeEnviado = true; // Ya enviamos el perfil, no hace falta repetirlo
             const textoLimpio = procesarPuntos(data.respuesta); 
-            
-            // 2. Mostramos en pantalla el texto ya limpio, sin corchetes
             appendMessage(textoLimpio, 'bot');
         } else {
             appendMessage('Error en la nave: ' + (data.error || 'Desconocido'), 'bot');
@@ -77,8 +93,8 @@ async function sendMessage() {
     }
 }
 
-// Event Listeners
-sendBtn.addEventListener('click', sendMessage);
-userInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') sendMessage();
+// 4. Evento del Chat
+chatForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    sendMessage();
 });
