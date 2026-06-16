@@ -1,0 +1,161 @@
+/* =========================================
+   Astro-Paws: Retro Terminal Stylesheet
+========================================= */
+
+/* 1. Estilos Globales y Tipografía Arcade */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0b0f19;
+    color: #e0e6ed;
+    font-family: 'Press Start 2P', monospace; /* Fuente Pixel Art obligatoria */
+    font-size: 10px; 
+    line-height: 1.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* 2. Contenedor Principal (La "Consola") */
+.terminal-container {
+    width: 100%;
+    max-width: 650px;
+    background-color: #151a28;
+    border: 4px solid #4a6fa5; /* Borde grueso retro */
+    display: flex;
+    flex-direction: column;
+    height: 85vh;
+    box-shadow: 8px 8px 0px #000000; /* Sombra dura estilo 8-bits */
+}
+
+/* 3. Panel de Estado (HUD) estilo Videojuego */
+.hud {
+    display: flex;
+    padding: 15px;
+    background-color: #0b0f19;
+    border-bottom: 4px dashed #4a6fa5;
+    gap: 20px;
+    align-items: center;
+}
+
+.avatar-box {
+    text-align: center;
+    background-color: #1a2332;
+    padding: 10px;
+    border: 2px solid #ffb703;
+    box-shadow: 2px 2px 0px #000;
+}
+
+.sprite {
+    font-size: 2.5rem; 
+}
+
+.name-tag {
+    font-weight: bold;
+    color: #ffb703;
+    margin-top: 5px;
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+.stats-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 9px;
+}
+
+.stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.score {
+    color: #00ffcc;
+    text-shadow: 2px 2px 0px #000;
+}
+
+/* Barra de progreso retro */
+progress {
+    appearance: none;
+    height: 14px;
+    width: 60%;
+}
+progress::-webkit-progress-bar {
+    background-color: #1a2332;
+    border: 2px solid #4a6fa5;
+}
+progress::-webkit-progress-value {
+    background-color: #00ffcc;
+}
+
+/* 4. Área del Chat */
+.chat-box {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 5. Cajas de Diálogo (Mensajes) */
+.message {
+    padding: 15px;
+    max-width: 85%;
+    box-shadow: 4px 4px 0px #000000; /* Sombra sólida negra */
+}
+
+.message.user {
+    align-self: flex-end;
+    background-color: #2b3a67;
+    border: 2px solid #4a6fa5;
+    color: #ffffff;
+}
+
+.message.bot {
+    align-self: flex-start;
+    background-color: #0b0f19;
+    border: 3px solid #f8f9fa; /* Borde blanco grueso de NPC */
+    color: #f8f9fa;
+}
+
+/* 6. Área de Entrada de Texto y Botón */
+.input-area {
+    display: flex;
+    padding: 15px;
+    background-color: #0b0f19;
+    border-top: 4px solid #4a6fa5;
+    gap: 10px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 12px;
+    background-color: #151a28;
+    border: 2px solid #4a6fa5;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 10px;
+    outline: none;
+    box-shadow: inset 2px 2px 0px #000; /* Sombra interna para dar profundidad */
+}
+
+input[type="text"]:focus {
+    border-color: #ffb703;
+}
+
+button {
+    font-family: inherit;
+    font-size: 10px;
+    padding: 10px 20px;
+    background-color: #4a6fa5;
+    color: white;
+    border: 2px solid #ffffff;
+    box-shadow: 4px 4px 0px #000000;
+    cursor: pointer;
+    text-transform: uppercase;
+}

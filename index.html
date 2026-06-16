@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astro-Paws Terminal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="terminal-container">
+        <header>
+            <h1>🌌 Terminal Astro-Paws</h1>
+            <p>Conéctate a la terminal si sientes turbulencia en tu nave mental.</p>
+        </header>
+
+        <div class="hud">
+            <div class="avatar-box">
+                <span class="sprite">🐶</span> <div class="name-tag">ASTRO</div>
+            </div>
+            <div class="stats-box">
+                <div class="stat">
+                    <span>Navegación:</span>
+                    <progress value="100" max="100" class="health-bar"></progress>
+                </div>
+                <div class="stat">
+                    <span>Puntos de Calma:</span>
+                    <span id="score-display" class="score">0 XP</span>
+                </div>
+            </div>
+        </div>
+        
+        <div id="chat-box" class="chat-box">
+            <div class="message bot">¡Guau! Soy Astro. ¿Cómo están los niveles de oxígeno en tu nave hoy?</div>
+        </div>
+
+        <div class="input-area">
+            <input type="text" id="user-input" placeholder="Escribe tu mensaje aquí..." autocomplete="off">
+            <button id="send-btn">Enviar</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
