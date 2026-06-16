@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<<<<<<< Updated upstream
-    <div class="terminal-container">
-=======
 
     <section id="onboarding-screen" class="onboarding-container" aria-label="Pantalla de registro">
         <article class="onboarding-box">
@@ -42,29 +39,11 @@
 
     <main id="terminal-screen" class="terminal-container" style="display: none;">
         
->>>>>>> Stashed changes
         <header>
             <h1>🌌 Terminal Astro-Paws</h1>
             <p>Conéctate si sientes turbulencia mental en tu nave.</p>
         </header>
 
-<<<<<<< Updated upstream
-        <div class="hud">
-            <div class="avatar-box">
-                <span class="sprite">🐶</span> <div class="name-tag">ASTRO</div>
-            </div>
-            <div class="stats-box">
-                <div class="stat">
-                    <span>Navegación:</span>
-                    <progress value="100" max="100" class="health-bar"></progress>
-                </div>
-                <div class="stat">
-                    <span>Puntos de Calma:</span>
-                    <span id="score-display" class="score">0 XP</span>
-                </div>
-            </div>
-        </div>
-=======
         <section class="hud" aria-label="Panel de estado galáctico">
             <figure class="avatar-box">
                 <span class="sprite" role="img" aria-label="Avatar de Astro">🐶</span>
@@ -89,17 +68,17 @@
                 </nav>
             </dl>
         </section>
->>>>>>> Stashed changes
         
-        <div id="chat-box" class="chat-box">
-            <div class="message bot">¡Guau! Soy Astro. ¿Cómo están los niveles de oxígeno en tu nave hoy?</div>
-        </div>
+        <section id="chat-box" class="chat-box" aria-live="polite">
+            <article class="message bot">¡Sistemas iniciados! Esperando primer mensaje de la tripulación...</article>
+        </section>
 
-        <div class="input-area">
-            <input type="text" id="user-input" placeholder="Escribe tu mensaje aquí..." autocomplete="off">
-            <button id="send-btn">Enviar</button>
-        </div>
-    </div>
+        <form id="chat-form" class="input-area">
+            <input type="text" id="user-input" placeholder="Escribe tu mensaje aquí..." autocomplete="off" required>
+            <button type="submit">Enviar</button>
+        </form>
+
+    </main>
     
     <script src="script.js"></script>
 </body>
