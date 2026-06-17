@@ -49,3 +49,13 @@ GEMINI_API_KEY=tu_clave_secreta_aqui**
 
 ## Abrir la Interfaz:
 Haz doble clic en el archivo index.html ubicado en tu carpeta de frontend para abrirlo en tu navegador y comenzar la interacción.
+
+<img width="833" height="592" alt="image" src="https://github.com/user-attachments/assets/d7ea568d-1299-4f89-8db5-673d682ca290" />
+
+<img width="704" height="819" alt="image" src="https://github.com/user-attachments/assets/cdea3744-8e1e-4c89-a935-026feabb5fd9" />
+
+<img width="705" height="857" alt="image" src="https://github.com/user-attachments/assets/837f70b1-5e3b-4b81-b199-71c09a58fada" />
+
+
+
+
